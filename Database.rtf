@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 create table sinhvien(\
+    maSinhVien int Primary key auto_increment,\
+    tenSinhVien NVARCHAR(255) NOT NULL,\
+    ngaySinh NVARCHAR(255) NOT NULL,\
+    diaChi NVARCHAR(255) NOT NULL,\
+    maLop NVARCHAR(255),\
+    gioiTinh NVARCHAR(255),\
+    FOREIGN KEY (maLop) REFERENCES lop(maLop)\
+)\
+\
+create TABLE diemrenluyen(\
+    maDiemRenLuyen int PRIMARY KEY auto_increment,\
+    maSinhVien int,\
+    diemRenLuyen float,\
+    hocKi int,sinhvien\
+    FOREIGN KEY (maSinhVien) REFERENCES sinhvien(maSinhVien)\
+)\
+\
+create TABLE lop(\
+    maLop NVARCHAR(255) PRIMARY KEY,\
+    tenLop NVARCHAR(255) NOT NULL,\
+    maGiaoVien int,\
+    maKhoa NVARCHAR(255) NOT NULL,\
+    FOREIGN KEY(maKhoa) REFERENCES khoa(maKhoa),\
+    FOREIGN KEY(maGiaoVien) REFERENCES giaovien(maGiaoVien)\
+)\
+\
+create table khoa(\
+    maKhoa NVARCHAR(255) PRIMARY KEY,\
+    tenKhoa NVARCHAR(255) NOT NULL\
+)\
+\
+create table giaovien(\
+    maGiaoVien int PRIMARY KEY auto_increment,\
+    tenGiaoVien NVARCHAR(255) NOT NULL,\
+    ngaySinh NVARCHAR(255) NOT NULL,\
+    diaChi NVARCHAR(255) NOT NULL,\
+    tenDangNhap NVARCHAR(255) NOT NULL,\
+    matKhau NVARCHAR(255) NOT NULL,\
+    isAdmin boolean,\
+    gioiTinh NVARCHAR(255) NOT NULL,\
+    \
+    \
+)}
